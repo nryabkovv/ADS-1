@@ -15,23 +15,22 @@ bool checkPrime(uint64_t value) {
 
 uint64_t nPrime(uint64_t n) {
     uint64_t num = 0;
-    for (uint64_t j = 2; num <= n; ++j) {
+    uint64_t result = 0;
+    for (uint64_t j = 2; num <= n; j++) {
         if (checkPrime(j)) {
+            result = j;
             num += 1;
-        }
-        if (num == n) {
-            return j;
         }
     }
     return 0;
 }
 
 uint64_t nextPrime(uint64_t value) {
-    int64_t np = 0;
     while (true) {
-        value = value + 1;
+        value += 1;
         if (checkPrime(value)) {
             return value;
+            break;
         }
     }
 }
